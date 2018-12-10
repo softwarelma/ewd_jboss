@@ -1,0 +1,166 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <properties>
+        <com.softwarelma.ewd.version>1.0.1</com.softwarelma.ewd.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jdk.version>1.7</jdk.version>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.softwarelma</groupId>
+    <artifactId>ewd_jboss</artifactId>
+    <packaging>war</packaging>
+    <version>${com.softwarelma.ewd.version}</version>
+    <name>ewd_jboss</name>
+    <description>Elma Web Dynamic - Maven, Eclipse, JSF, JBoss</description>
+
+    <dependencies>
+
+        <!-- TOMCAT BEGIN -->
+
+        <!-- JSF 2 -->
+        <!-- <dependency> -->
+        <!-- <groupId>com.sun.faces</groupId> -->
+        <!-- <artifactId>jsf-api</artifactId> -->
+        <!-- <version>2.1.7</version> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>com.sun.faces</groupId> -->
+        <!-- <artifactId>jsf-impl</artifactId> -->
+        <!-- <version>2.1.7</version> -->
+        <!-- </dependency> -->
+
+        <!-- <dependency> -->
+        <!-- <groupId>javax.servlet</groupId> -->
+        <!-- <artifactId>jstl</artifactId> -->
+        <!-- <version>1.2</version> -->
+        <!-- </dependency> -->
+
+        <!-- <dependency> -->
+        <!-- <groupId>javax.servlet</groupId> -->
+        <!-- <artifactId>servlet-api</artifactId> -->
+        <!-- <version>2.5</version> -->
+        <!-- </dependency> -->
+
+        <!-- <dependency> -->
+        <!-- <groupId>javax.servlet.jsp</groupId> -->
+        <!-- <artifactId>jsp-api</artifactId> -->
+        <!-- <version>2.1</version> -->
+        <!-- </dependency> -->
+
+        <!-- EL -->
+        <!-- Tomcat 7 -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.glassfish.web</groupId> -->
+        <!-- <artifactId>el-impl</artifactId> -->
+        <!-- <version>2.2</version> -->
+        <!-- </dependency> -->
+        <!-- Tomcat 6 -->
+        <!-- <dependency> -->
+        <!-- <groupId>com.sun.el</groupId> -->
+        <!-- <artifactId>el-ri</artifactId> -->
+        <!-- <version>1.0</version> -->
+        <!-- </dependency> -->
+
+        <!-- TOMCAT END -->
+
+        <!-- JBOSS OPTION 1 - BEGIN -->
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JBOSS OPTION 2 - END -->
+
+        <!-- JBOSS OPTION 1 - BEGIN -->
+
+        <!-- <dependency> -->
+        <!-- <groupId>javax.validation</groupId> -->
+        <!-- <artifactId>validation-api</artifactId> -->
+        <!-- <version>1.0.0.GA</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>javax.enterprise</groupId> -->
+        <!-- <artifactId>cdi-api</artifactId> -->
+        <!-- <version>1.0-SP4</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- <exclusions> -->
+        <!-- <exclusion> -->
+        <!-- <artifactId>jboss-interceptor-api</artifactId> -->
+        <!-- <groupId>org.jboss.interceptor</groupId> -->
+        <!-- </exclusion> -->
+        <!-- <exclusion> -->
+        <!-- <artifactId>jsr250-api</artifactId> -->
+        <!-- <groupId>javax.annotation</groupId> -->
+        <!-- </exclusion> -->
+        <!-- </exclusions> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.jboss.spec.javax.servlet</groupId> -->
+        <!-- <artifactId>jboss-servlet-api_3.0_spec</artifactId> -->
+        <!-- <version>1.0.2.Final</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.jboss.spec.javax.annotation</groupId> -->
+        <!-- <artifactId>jboss-annotations-api_1.1_spec</artifactId> -->
+        <!-- <version>1.0.1.Final</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.jboss.spec.javax.faces</groupId> -->
+        <!-- <artifactId>jboss-jsf-api_2.1_spec</artifactId> -->
+        <!-- <version>2.0.9.Final</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.jboss.spec.javax.ejb</groupId> -->
+        <!-- <artifactId>jboss-ejb-api_3.1_spec</artifactId> -->
+        <!-- <version>1.0.2.Final</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+        <!-- <dependency> -->
+        <!-- <groupId>org.jboss.spec.javax.el</groupId> -->
+        <!-- <artifactId>jboss-el-api_2.2_spec</artifactId> -->
+        <!-- <version>1.0.2.Final</version> -->
+        <!-- <scope>provided</scope> -->
+        <!-- </dependency> -->
+
+        <!-- JBOSS OPTION 2 - END -->
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <!-- Always download and attach dependencies source code -->
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>false</downloadJavadocs>
+                    <!-- Avoid type mvn eclipse:eclipse -Dwtpversion=2.0 -->
+                    <wtpversion>2.0</wtpversion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
